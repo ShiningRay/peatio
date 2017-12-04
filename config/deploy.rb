@@ -2,14 +2,14 @@ require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'
-require 'mina/slack/tasks'
+# require 'mina/slack/tasks'
 
-set :repository, 'https://github.com/peatio/peatio.git'
-set :user, 'deploy'
-set :deploy_to, '/home/deploy/peatio'
+set :repository, 'https://github.com/ShiningRay/peatio.git'
+set :user, 'brick'
+set :deploy_to, '/opt/peatio'
 set :branch, 'master'
-set :domain, 'demo.peatio.com'
-
+set :domain, 'test.exchange.grootapp.com'
+set :term_mode, nil
 set :shared_paths, [
   'config/database.yml',
   'config/application.yml',
@@ -62,7 +62,7 @@ task deploy: :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      invoke :'passenger:restart'
+      invoke :'puma:phased_restart'
     end
   end
 end

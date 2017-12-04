@@ -69,12 +69,14 @@ gem 'unread', github: 'peatio/unread'
 gem 'carrierwave', '~> 0.10.0'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'rest-client', '~> 1.6.8'
+gem 'puma'
 
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker', '~> 1.4.3'
   gem 'mina'
   gem 'mina-slack', github: 'peatio/mina-slack'
+  gem 'mina-puma', require: false
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
